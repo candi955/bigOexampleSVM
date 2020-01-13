@@ -9,6 +9,8 @@ import numpy as np
 import xlrd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
+import big_o
+from big_o import measure_execution_time
 
 
 # pulling excel file and creating variable
@@ -52,6 +54,7 @@ print('\n')
 
 
 class SVM():
+
 
     def _dummyNums_(self):
         # getting user-input for dummy numbers to be used in the algorithm; preferably the most recent
@@ -115,6 +118,32 @@ class SVM():
                 print('\nThe accuracy score of the prediction is: ')
                 print(accuracy_score(y_test, y_pred))
 
+
+                #attempting BigO
+                # references:
+                # https://pypi.org/project/big_O/#description
+                # https://pypi.org/project/big_O/#modal-close
+                # https://skerritt.blog/big-o/#-big-o-notation-cheat-sheet
+                # https://skerritt.blog/big-o/
+
+                #positive_int_generator = lambda n: big_o.datagen.integers(n, 0, 10000)
+                #best, others = big_o.big_o(prediction, positive_int_generator, n_repeats=100)
+                print('\nAttempting to print Big O: ')
+                #print(best)
+
+                # t = self.timeit(prediction)
+                # print(t)
+
+                max_ = 0
+                for el in prediction:
+                    if el > max_:
+                        max_ = el
+
+                positive_int_generator = lambda n: big_o.datagen.integers(n, 0, 10000)
+                best, others = big_o.big_o(max, positive_int_generator, n_repeats=100)
+                print(best)
+                print(max)
+
             except ValueError:
                 print("Error, Please enter a number between 1 and 69.")
 
@@ -125,9 +154,12 @@ SVM()
 
 def Main():
 
+
+
     svmCode = SVM()
 
     svmCode._dummyNums_()
+
 
 
 Main()
