@@ -137,12 +137,18 @@ def _lookingForNumInSet_(set, lookingFor):
             while True:
                 try:
                     print('Number is in the set')
+                except ValueError:
+                    print("This didn't work")
+                else:
+                    break
 
-                    if i != lookingFor:
-                        print('This number is not in the set')
+        if i != lookingFor:
+            while True:
+                try:
+                    print('This number is not in the set')
 
                 except ValueError:
-                    print('error was made')
+                    print('Error was made')
                 else:
                     break
 
@@ -157,11 +163,13 @@ def _lookingForNumInSet_(set, lookingFor):
             #print('This number is not in the set')
             #break
 
-print('for the number not in set, 31:')
+print('for the number not in set, 31:\n')
 _lookingForNumInSet_(set, lookingFor=31)
+print('\n')
 
-print('for number in the set, 8:')
+print('for number in the set, 8:\n')
 _lookingForNumInSet_(set, lookingFor=8)
+print('\n')
 
 
 
