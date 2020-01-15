@@ -92,6 +92,7 @@ print('\n')
 #create a list:
 
 list = [x for x in range(25)]
+print('Here is the list:')
 print(list)
 print('\n')
 
@@ -100,7 +101,7 @@ print('\n')
 
 # searching in list of 0 - 24
 print('searching for element in list of 0-24:')
-lookingFor11 = 11
+
 
 def _lookingfor11onList_():
 
@@ -120,7 +121,7 @@ def _lookingfor11onList_():
 # (note: although some of this is from reference, some I created myself)
 # # searching in set of 0 - 24
 
-print('searching for element in set of 0-24:')
+print('Here is the set:')
 set = {x for x in range(25)}
 print(set)
 print('\n')
@@ -131,26 +132,36 @@ print('\n')
 # reference for Enumerate(): https://www.google.com/search?q=what+is+enumerate+python&oq=what+is+enumerate+python&aqs=chrome..69i57j0l7.4103j0j7&sourceid=chrome&ie=UTF-8
 def _lookingForNumInSet_(set, lookingFor):
 
-    for i, el in enumerate(set):
-        if el == lookingFor:
+    for i in set:
+        if i == lookingFor:
             while True:
-                print('This number is in the set:')
-                print(lookingFor)
-                break
+                try:
+                    print('Number is in the set')
+
+                    if i != lookingFor:
+                        print('This number is not in the set')
+
+                except ValueError:
+                    print('error was made')
+                else:
+                    break
+
+    #for i, el in enumerate(set):
+     #   if el == lookingFor:
+      #      while True:
+       #         print('This number is in the set:')
+        #        print(lookingFor)
+         #       break
 
         #elif el != lookingFor:
             #print('This number is not in the set')
             #break
-        else:
-            print('This number is not in the set')
-            break
-
 
 print('for the number not in set, 31:')
-_lookingForNumInSet_(set, lookingFor={31})
+_lookingForNumInSet_(set, lookingFor=31)
 
 print('for number in the set, 8:')
-_lookingForNumInSet_(set, lookingFor={8})
+_lookingForNumInSet_(set, lookingFor=8)
 
 
 
