@@ -1,3 +1,8 @@
+# This page is practice on lists, sets, Big O, and a little on linked lists
+
+# References are listed, although much of what is referenced was modified into functions by myself for further
+# exploration of the subjects
+
 # reference for this study of lists, sets, and O(n) or Big O:
 # https://www.youtube.com/watch?v=rfvc66Qog4o
 # Although referenced, the functions at the end were edited/adjusted by me to fit
@@ -29,6 +34,7 @@ print("\n")
 # <class 'list'>
 # [1, 2, 3, 4, 5]
 
+# _______________________________________________________________________________________________________________
 # list is ordered collection datatype that is mutable
 # list is ordered, a set, although mutable,  is not ordered
 # set doesn't support indexing, but isn't ordered via index
@@ -41,7 +47,7 @@ print("\n")
 
 # results:
 # {1, 3, 4}
-
+# _______________________________________________________________________________________________________________
 # if add to set, takes elements into consideration, and doesn't necessarily add the element as new to the set if
 # it is already there
 
@@ -51,7 +57,7 @@ print("\n")
 
 # result:
 # {1, 3, 4}
-
+# _______________________________________________________________________________________________________________
 # because of this, we can remove duplicate elements from the set
 
 setlist.remove(1)
@@ -60,7 +66,7 @@ print("\n")
 
 # result:
 # {3, 4}
-
+# _______________________________________________________________________________________________________________
 # We only want to do a 'set' rather than a list, if we care about where the elements do and do not exist
 # Sets can contain both numbers and strings
 
@@ -70,7 +76,7 @@ print('\n')
 
 # result:
 # {1, 'apple', 3, 6, 9}
-
+# _______________________________________________________________________________________________________________
 # a set doesn't actually present as 'ordered' necessarily (see example below once elements are added)
 
 setlist.add(-8)
@@ -91,7 +97,7 @@ print('\n')
 # {1, 'peaches', 3, 5, 6, 'apple', 9, -8}
 
 # sets are fast though to find an element; can be thought of as 'constant' time
-
+# _______________________________________________________________________________________________________________
 # 'Time Complexity of Sets versus Lists' _____________________________________________________________________
 
 
@@ -192,6 +198,8 @@ print('\n')
 # Searching for 8 on the Set:
 # A match was found
 
+
+# _______________________________________________________________________________________________________________
 # Please note that for Big O, lists are considered O(n) for insert and removal (lists are slower for
 # adding and removal; need index, n depends on amount of data) - have to look through entire list to
 # see if element exists O(n), a linear function - basically how long it takes to find if element exists
@@ -206,6 +214,8 @@ print(list)
 # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 50, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 # [3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 50, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 
+
+# _______________________________________________________________________________________________________________
 # creating function with argument 'list':
 def _listInsert_(list):
     print(list)
@@ -225,6 +235,8 @@ _listInsert_(list=(6, 10, 12))
 
 # Please note that for Big O, sets are considered O(1) for insert and removal (sets are faster for adding or removal).
 # It takes only one operation to see if element is on list.
+
+# _______________________________________________________________________________________________________________
 
 # Again for lists, removing the 10 and the 5 as below with list.remove is O(n) .. slower than O(1) like with sets
 print('\nRemoving the 10 and 5 from the List:')
@@ -247,6 +259,14 @@ print('\n')
 
 # It appears insert does not work on sets
 
+# results:
+# Removing the 10 and 5 from the List:
+# [3, 0, 1, 2, 3, 4, 6, 7, 8, 9, 11, 50, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]#
+# Removing the 10 and 5 from the Set, and adding 1000:
+# {0, 1, 2, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 1000}
+
+
+# _______________________________________________________________________________________________________________
 
 # More notes about sets:
 # Reasons to utilize sets instead of lists:
@@ -262,7 +282,6 @@ print(newlist)
 print('\n')
 
 listAsSet = set(newlist)
-print(listAsSet)
 print('\n')
 
 print("Here is the new list converted to a set:")
@@ -270,11 +289,31 @@ print(listAsSet)
 print('\n')
 
 # convert to set and check length of set versus length of original list
-dup = len(listAsSet) != len(newlist)
+dup = len(listAsSet) == len(newlist)
 
 print('Following will state if the lists are duplicate:')
 print(dup)
 print('\n')
+
+dup = len(listAsSet) != len(newlist)
+
+print('Following will state if the lists are different:')
+print(dup)
+print('\n')
+
+# results:
+# Here is a new list:
+# [3, 5, 8, 2, 3, 2, 1, 1, 3, 2, 7]
+# Here is the new list converted to a set:
+# {1, 2, 3, 5, 7, 8}#
+# Following will state if the lists are duplicate:
+# False#
+# Following will state if the lists are different:
+# True
+
+# Side note: converting a set to a list is O(n) because have to go through all elements of list to convert
+
+# _______________________________________________________________________________________________________________
 
 # A little look at linked lists: below is inserting a tail of a linked list from HackerRank
 # reference: https://stackoverflow.com/questions/35559632/insert-a-node-at-the-tail-of-a-linked-list-python-hackerrank
