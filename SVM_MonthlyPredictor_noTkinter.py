@@ -10,11 +10,17 @@ import xlrd
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-import sys
 import time
 
-start = time.clock()
-elapsed = time.clock() - start
+# reference:
+# https://stackoverflow.com/questions/85451/pythons-time-clock-vs-time-time-accuracy
+# https://docs.python.org/3.7/library/timeit.html
+# https://docs.python.org/2/library/timeit.html
+# https://www.youtube.com/watch?v=l0MI6TILasM
+
+#start = time.clock()
+#elapsed = time.clock() - start
+
 
 
 # pulling excel file and creating variable
@@ -57,6 +63,11 @@ print('\n')
 
 
 class SVM():
+
+    #def t_time(self):
+        #start = time.time()
+        #time.sleep(0.1)
+        #return (time.time()-start)
 
 
     def _dummyNums_(self):
@@ -106,6 +117,11 @@ class SVM():
         while True:
             try:
 
+                print('\nEpoch start-time:')
+                start = time.time()
+                print(start, 'seconds')
+                print('\n')
+
                 #calling dummy values function to call variables from that function
 
                 # turning the dummy values, which were string then integer, back into an array for the prediction
@@ -121,6 +137,15 @@ class SVM():
                 print('\nThe accuracy score of the prediction is: ')
                 print(accuracy_score(y_test, y_pred))
 
+                print('Epoch end-time:')
+                end = time.time()
+                print(end, 'seconds')
+                print('\n')
+
+                elapsed = end - start
+                print("This amount of time has elapsed during the processing of this function:")
+                print(elapsed, 'seconds')
+
             except ValueError:
                 print("Error, Please enter a number between 1 and 69.")
 
@@ -132,8 +157,7 @@ SVM()
 
 def Main():
 
-    mySVM = SVM()
-    mySVM._dummyNums_()
-
+    mysvm = SVM()
+    mysvm._dummyNums_()
 
 Main()
