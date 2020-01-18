@@ -47,7 +47,6 @@ y_pred = model.predict(X_test)
 
 knn = KNeighborsClassifier(n_neighbors=1)
 knn.fit(X, y)
-
 # the dummy number value method, for tab 3 input entries from the user
 
 print('The lottery dataframe this prediction is being trained off of is as follows:\n ')
@@ -133,8 +132,8 @@ SVM()
 
 def Main():
 
-    svmCode = SVM()
-    svmCode._dummyNums_()
-    svmCode._timer_()
+    mySVM = SVM()
+    mySVM._dummyNums_()
+
 
 Main()
