@@ -20,20 +20,15 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-
-
 # pulling excel file and creating variable
 lottoExcel = xlrd.open_workbook('PastWinningNum_SVM_Excel.xlsx')
 # Creating variable to convert excel file to a dataframe (using pandas)
 sheets = lottoExcel.sheets()
 
 
-
 for sheet in sheets:
     lottoSheetData = np.array([[sheet.cell_value(r, c) for c in range(sheet.ncols)] for r in range(sheet.nrows)])
-    #lottoSheetData_DataFrame = pd.DataFrame(lottoSheetData)
-    # print('\n' + '\n' + 'LottoSheet Data, DataFrame(excel) format:')
-    # print(lottoSheetData_DataFrame)
+
 # creating dataframe for tkinter
 df = pd.DataFrame(lottoSheetData)
 
