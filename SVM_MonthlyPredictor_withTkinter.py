@@ -183,10 +183,10 @@ def mainMenu():
             if messagebox.askokcancel("Quit", "Do you want to quit?"):
                 root.destroy()
                 root.protocol("WM_DELETE_WINDOW", mainMenu)
-                import mainPage
+                import mainPageWithTkinter
 
         except ValueError:
-            import mainPage
+            import mainPageWithTkinter
         else:
             break
 
